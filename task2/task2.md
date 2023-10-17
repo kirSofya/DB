@@ -11,10 +11,9 @@
 
 1)
 ![image](https://github.com/kirSofya/DB/assets/116517600/b7a21aec-32d9-4833-917d-deda601998d1)
-
-2.1)n
+2.1)
 ![image](https://github.com/kirSofya/DB/assets/116517600/751c82cd-444e-4a02-ab1e-7f88ef7d4879)
-2.2) n
+2.2) 
 ![image](https://github.com/kirSofya/DB/assets/116517600/2b380168-9b4b-40c2-9607-c5fbaf56753e)
 2.3)
 ![image](https://github.com/kirSofya/DB/assets/116517600/4f47c2ca-5369-4877-9fc7-73449f5aadd7)
