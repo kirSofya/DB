@@ -43,17 +43,17 @@ HAVING COUNT(*) = (SELECT MAX(BookCount) FROM (SELECT Author, COUNT(*) AS BookCo
 ```
 * Какие читатели забронировали все книги (не копии), написанные "Марком Твеном"?
 ```sql
-SELECT r.FirstName, r.LastName  
-FROM Reader r  
-WHERE NOT EXISTS (  
-  SELECT b.ISBN  
-  FROM Book b  
-  WHERE b.Author = 'Марк Твен' AND NOT EXISTS (  
-    SELECT *  
-    FROM Borrowing br  
-    WHERE br.ReaderNr = r.number AND br.ISBN = b.ISBN  
-  )  
-);
+SELECT r.FirstName, r.LastName
+FROM Reader r
+JOIN Borrowing b ON r.number = b.ReaderNr
+JOIN Book bk ON bk.isbn = b.ISBN
+WHERE bk.Author = 'Марк Твен' AND b.ReturnDate IS NULL
+GROUP BY r.FirstName, r.LastName
+HAVING COUNT(DISTINCT bk.isbn) = (
+    SELECT COUNT(DISTINCT isbn)
+    FROM Book
+    WHERE Author = 'Марк Твен'
+)
 ```
 * Какие книги имеют более одной копии?
 ```sql
