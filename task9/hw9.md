@@ -12,7 +12,7 @@ demographics table schema
 return a single column named calculation where the value is the bit length of name, added to the number of characters in race.  
 
 ```sql
-SELECT (LENGTH(name) * 8) + LENGTH(race) AS calculation
+SELECT (BIT_LENGTH(name) + LENGTH(race)) AS calculation
 FROM demographics;
 ```
 
@@ -26,7 +26,7 @@ Given a demographics table in the following format:
 you need to return the same table where all text fields (name & race) are changed to the bit length of the string.
 
 ```sql
-SELECT id, (LENGTH(name) * 8) AS name, (LENGTH(race) * 8) AS race
+SELECT id, BIT_LENGTH(name) AS name, birthday, BIT_LENGTH(race) AS race
 FROM demographics;
 ```
 
@@ -42,9 +42,10 @@ you need to return the same table where all text fields (name & race) are change
 e.g. Verlie = 86 Warren = 87 Horace = 72 Tracy = 84  
 
 ```sql
-SELECT id, ASCII(SUBSTRING(name, 1, 1)) AS name, ASCII(SUBSTRING(race, 1, 1)) AS race
+SELECT id, SUBSTRING(name, 1, 1)
 FROM demographics;
 ```
+
 4. Concatenating Columns  
 Given the table below:  
 ** names table schema **  
