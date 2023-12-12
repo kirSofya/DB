@@ -42,7 +42,7 @@ you need to return the same table where all text fields (name & race) are change
 e.g. Verlie = 86 Warren = 87 Horace = 72 Tracy = 84  
 
 ```sql
-SELECT id, SUBSTRING(name, 1, 1)
+SELECT id, SUBSTRING(name, 1, 1) AS name, SUBSTRING(race, 1, 1) AS race
 FROM demographics;
 ```
 
